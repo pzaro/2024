@@ -1,0 +1,27 @@
+def calculate_final_price(unit_price, quantity, free_items, discount1, discount2):
+    total_quantity = quantity + free_items
+    intermediate_price = unit_price * (1 - discount1 / 100)
+    final_price = intermediate_price * (1 - discount2 / 100)
+    total_value = total_quantity * final_price
+    unit_value = total_value / total_quantity
+
+    return {
+        'total_quantity': total_quantity,
+        'final_price': final_price,
+        'total_value': round(total_value, 2),
+        'unit_value': round(unit_value, 2)
+    }
+
+# Παράδειγμα χρήσης:
+unit_price = 12.80
+quantity = 12
+free_items = 0
+discount1 = 15
+discount2 = 10
+
+result = calculate_final_price(unit_price, quantity, free_items, discount1, discount2)
+
+print("Συν Τεμ:", result['total_quantity'])
+print("Τελική Τιμή:", result['final_price'])
+print("Συνολική Αξία:", result['total_value'])
+print("Τελική Αξία Τεμαχίου:", result['unit_value'])
