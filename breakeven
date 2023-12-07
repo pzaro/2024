@@ -1,0 +1,15 @@
+def calculate_break_even_point(fixed_costs, selling_price_per_unit, cost_per_unit):
+    try:
+        break_even_point = fixed_costs / (selling_price_per_unit - cost_per_unit)
+        return break_even_point
+    except ZeroDivisionError:
+        return "Διαίρεση με μηδέν - Το κόστος παραγωγής ανά μονάδα πρέπει να είναι μικρότερο από την τιμή πώλησης ανά μονάδα."
+
+# Εισαγωγή δεδομένων από τον χρήστη
+fixed_costs = float(input("Εισάγετε τα συνολικά κόστη παραγωγής: "))
+selling_price_per_unit = float(input("Εισάγετε την τιμή πώλησης ανά μονάδα: "))
+cost_per_unit = float(input("Εισάγετε το κόστος παραγωγής ανά μονάδα: "))
+
+# Υπολογισμός και εκτύπωση του αποτελέσματος
+result = calculate_break_even_point(fixed_costs, selling_price_per_unit, cost_per_unit)
+print(f"Το νεκρό σημείο πωλήσεων είναι: {result}")
